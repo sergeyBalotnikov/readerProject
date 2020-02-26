@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LiteratureTranslator</string>
+    <string name="last_opened_book">Last open book</string>
+    <string name="list_of_available_books">List of available books</string>
+</resources>
