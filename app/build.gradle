@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "ru.mail.sergey_balotnikov.literaturetranslator"
-        minSdkVersion 24
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -34,4 +34,29 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:1.1.1"
     implementation "android.arch.lifecycle:viewmodel:1.1.1"
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    implementation 'com.googlecode.json-simple:json-simple:1.1'
+    implementation 'org.fbreader:book:1.0.0-rc01'
+    implementation 'org.fbreader:config_client:1.0.0-rc01'
+    implementation 'org.fbreader:config_provider:1.0.0-rc01'
+    implementation 'org.fbreader:filesystem:1.0.0-rc01'
+    implementation 'org.fbreader:fontentry:1.0.0-rc01'
+    implementation 'org.fbreader:format_interface:1.0.0-rc01'
+    implementation 'org.fbreader:image:1.0.0-rc01'
+    implementation 'org.fbreader:intent:1.0.0-rc01'
+    implementation 'org.fbreader:language:1.0.0-rc01'
+    implementation 'org.fbreader:loader:1.0.0-rc01'
+    implementation 'org.fbreader:options:1.0.0-rc01'
+    implementation 'org.fbreader:text_client:1.0.0-rc01'
+    implementation 'org.fbreader:text_provider:1.0.0-rc01'
+    implementation 'org.fbreader:text_util:1.0.0-rc01'
+    implementation 'org.fbreader:text_view:1.0.0-rc01'
+    implementation 'org.fbreader:toc:1.0.0-rc01'
+    implementation 'org.fbreader:util:1.0.0-rc01'
+    implementation 'org.fbreader:view:1.0.0-rc01'
+    implementation 'org.fbreader:vimgadgets:1.0.0-rc01'
+    implementation 'org.fbreader:zip-amse:1.0.0-rc01'
+
+    implementation project(':fbreader_extras')
+    implementation project(':fbreader_styles')
+    implementation project(':fbreader_text_extras')
 }

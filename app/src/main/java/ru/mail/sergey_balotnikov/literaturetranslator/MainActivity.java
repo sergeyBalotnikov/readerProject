@@ -30,6 +30,11 @@ public class MainActivity extends AppCompatActivity implements BooksListAdapter.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.rvBooksList);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            checkPermission();
+        } else {
+            adapterInit();
+        }
         model= ViewModelProviders.of(this).get(BooksViewModel.class);
         try {
             model.getBookListLiveData().observe(this, bookList ->
@@ -38,11 +43,6 @@ public class MainActivity extends AppCompatActivity implements BooksListAdapter.
             e.printStackTrace();
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            checkPermission();
-        } else {
-            adapterInit();
-        }
     }
 
     private void adapterInit() {

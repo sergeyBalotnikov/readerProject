@@ -8,6 +8,15 @@
     android:background="@color/colorSoftGrayBackground"
     >
 
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/svSearch"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/regular_margin"
+        android:background="@color/colorAnnotationTextDB"
+        />
     <TextView
         android:id="@+id/tvLastOpenedBook"
         android:layout_width="match_parent"
@@ -19,15 +28,6 @@
         android:hint="@string/last_opened_book"
         android:background="@color/colorAccentFour"/>
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/svSearch"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_margin="@dimen/regular_margin"
-        android:background="@color/colorAnnotationTextDB"
-        />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBooksList"
         android:layout_weight="5"
@@ -37,12 +37,11 @@
         />
 
     <RelativeLayout
+        android:id="@+id/rlButtons"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:background="@color/colorSoftGrayBackground"
-
         >
 
         <ImageButton
@@ -58,19 +57,18 @@
             android:layout_margin="@dimen/regular_margin"
 
             />
+
         <ImageButton
             android:id="@+id/ibDictionary"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_dictionary"
-            android:tint="@color/colorAccentTwo"
-            android:layout_alignParentEnd="true"
             android:background="@null"
             android:elevation="4dp"
-            android:layout_margin="@dimen/regular_margin"
-            />
+            android:layout_alignParentEnd="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_dictionary"
+            android:tint="@color/colorAccentTwo" />
 
     </RelativeLayout>
 
