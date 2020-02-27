@@ -53,7 +53,7 @@ public class BooksListAdapter extends RecyclerView.Adapter<BooksListAdapter.Book
         }
 
         public void bind(Book book) {
-            bookTitle.setText(book.getTitle());
+            bookTitle.setText(book.getTitle().substring(0,book.getTitle().indexOf(".")));
         }
     }
     public interface OnBookTitleClickListener{

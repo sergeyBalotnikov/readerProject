@@ -37,7 +37,6 @@ public class RepoStartActivityImpl implements RepositoryStartActivity {
     }
 
     private List<Book> getBookListFromStorage() {
-        storageBooks.add(new Book("aaa", "bbb"));
         setBookList(Environment.getExternalStorageDirectory().getAbsolutePath());
         Log.d(LOG_TAG, "getBookListFromStorage"+storageBooks.size());
         return storageBooks;
@@ -46,8 +45,9 @@ public class RepoStartActivityImpl implements RepositoryStartActivity {
     private void setBookList(String path){
         File currentFile = new File(path);
         if(!currentFile.isDirectory()){
-            if(currentFile.getName().endsWith(".txt")){
+            if(currentFile.getName().endsWith(".epub")||currentFile.getName().endsWith(".fb2")){
                 storageBooks.add(new Book(currentFile.getName(), currentFile.getAbsolutePath()));
+                Log.d(LOG_TAG, currentFile.getName());
                 return;
             }
         }else {

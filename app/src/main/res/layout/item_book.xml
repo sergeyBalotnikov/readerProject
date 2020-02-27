@@ -9,6 +9,7 @@
         tools:text="item"
         android:gravity="center"
         android:textColor="@color/colorTextWB"
+        android:textSize="@dimen/regular_text_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
