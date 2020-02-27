@@ -8,6 +8,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 
@@ -23,7 +24,12 @@ import org.fbreader.text.view.SelectionData;
 import org.fbreader.text.widget.TextWidget;
 import org.fbreader.util.ViewUtil;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+
 import ru.mail.sergey_balotnikov.literaturetranslator.R;
+import ru.mail.sergey_balotnikov.literaturetranslator.utils.Interpreter;
 
 public class TextWidgetExt extends TextWidget {
 	{
@@ -62,9 +68,12 @@ public class TextWidgetExt extends TextWidget {
 	protected void showSelectionPanel() {
 		final SelectionData data = this.selectionData();
 		if (data != null) {
-			SelectionPanelUtil.showPanel(
+			CompletableFuture.supplyAsync(() ->
+					Interpreter.translatedText(data.text()))
+					.thenAccept(s -> Log.d("SVB", s));
+			/*SelectionPanelUtil.showPanel(
 				this, data.rects, new SelectionPanelListener(this)
-			);
+			);*/
 		}
 	}
 	@Override
