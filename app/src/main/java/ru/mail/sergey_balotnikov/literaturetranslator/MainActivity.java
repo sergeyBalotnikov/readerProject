@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -81,5 +82,8 @@ public class MainActivity extends AppCompatActivity implements BooksListAdapter.
     @Override
     public void onTitleClick(String path) {
         Log.d(LOG_TAG, path);
+        Intent intent = new Intent(this, ActivityReader.class);
+        intent.putExtra(ActivityReader.EXTRA_PATH, path);
+        startActivity(intent);
     }
 }
