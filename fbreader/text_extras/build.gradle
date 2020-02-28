@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+
+def sdkVersion = '1.0.2'
+
+dependencies {
+	implementation "androidx.annotation:annotation:1.1.0"
+	implementation "org.fbreader:book:$sdkVersion"
+	implementation "org.fbreader:config_client:$sdkVersion"
+	implementation "org.fbreader:text_client:$sdkVersion"
+	implementation "org.fbreader:text_util:$sdkVersion"
+	implementation "org.fbreader:text_view:$sdkVersion"
+	implementation "org.fbreader:toc:$sdkVersion"
+	implementation "org.fbreader:util:$sdkVersion"
+	implementation "org.fbreader:view:$sdkVersion"
+	implementation project(':fbreader_extras')
+}
+
+android {
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
+	compileSdkVersion 29
+	buildToolsVersion "29.0.2"
+
+	lintOptions {
+		abortOnError false
+	}
+
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
+
+	sourceSets {
+		main.java.srcDirs = ['src/main/java']
+		main.res.srcDirs = ['src/main/res']
+		main.manifest.srcFile 'src/main/AndroidManifest.xml'
+	}
+
+	defaultConfig {
+		minSdkVersion 16
+		targetSdkVersion 29
+		versionCode 1
+		versionName "1.0"
+	}
+}

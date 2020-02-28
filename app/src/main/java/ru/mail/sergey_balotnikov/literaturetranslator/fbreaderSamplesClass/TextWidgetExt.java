@@ -152,11 +152,9 @@ public class TextWidgetExt extends TextWidget {
                 TextView textView = TextWidgetExt.this.findViewById(R.id.tvTranslate);
                 textView.setText(s);
                 ImageButton addBtn = TextWidgetExt.this.findViewById(R.id.btnAdd);
-                addBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                addBtn.setOnClickListener(view -> {
+                    //add translate to dictionary
 
-                    }
                 });
                 panel.setVisibility(View.VISIBLE);
                 panel.requestFocus();
