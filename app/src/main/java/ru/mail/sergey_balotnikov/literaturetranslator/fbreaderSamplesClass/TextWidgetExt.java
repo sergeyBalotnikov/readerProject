@@ -7,10 +7,16 @@ package ru.mail.sergey_balotnikov.literaturetranslator.fbreaderSamplesClass;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Point;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.*;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import org.fbreader.book.Book;
 import org.fbreader.extras.info.InfoUtil;
@@ -24,9 +30,8 @@ import org.fbreader.text.view.SelectionData;
 import org.fbreader.text.widget.TextWidget;
 import org.fbreader.util.ViewUtil;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
 
 import ru.mail.sergey_balotnikov.literaturetranslator.R;
 import ru.mail.sergey_balotnikov.literaturetranslator.utils.Interpreter;
@@ -70,7 +75,10 @@ public class TextWidgetExt extends TextWidget {
 		if (data != null) {
 			CompletableFuture.supplyAsync(() ->
 					Interpreter.translatedText(data.text()))
-					.thenAccept(s -> Log.d("SVB", s));
+					.thenAccept(s -> {
+                        Log.d("SVB", s);
+                        showTranslatePanel(this, data.rects, s, new SelectionPanelListener(this));
+                    });
 			/*SelectionPanelUtil.showPanel(
 				this, data.rects, new SelectionPanelListener(this)
 			);*/
@@ -106,4 +114,66 @@ public class TextWidgetExt extends TextWidget {
 		TextSearchUtil.updatePanel(this);
 		NavigationUtil.updatePanel(this);
 	}
+	public void showTranslatePanel(@NonNull View widget, List<Rect> selectionRects, String s,  View.OnClickListener listener){
+        widget.post(new Runnable() {
+            @Override
+            public void run() {
+                final View panel = TextWidgetExt.this.findOrCreatePanel(widget);
+                if (panel == null) {
+                    return;
+                }
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.WRAP_CONTENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT
+                );
+                layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                final int verticalPosition;
+                if (selectionRects.isEmpty()) {
+                    verticalPosition = RelativeLayout.CENTER_VERTICAL;
+                } else {
+                    int top = Integer.MAX_VALUE;
+                    int bottom = Integer.MIN_VALUE;
+                    for (Rect r : selectionRects) {
+                        top = Math.min(top, r.top);
+                        bottom = Math.max(bottom, r.bottom);
+                    }
+                    final int spaceTop = top;
+                    final int spaceBottom = widget.getHeight() - bottom;
+                    if (spaceTop > spaceBottom) {
+                        verticalPosition = spaceTop > panel.getHeight() + 20
+                                ? RelativeLayout.ALIGN_PARENT_TOP : RelativeLayout.CENTER_VERTICAL;
+                    } else {
+                        verticalPosition = spaceBottom > panel.getHeight() + 20
+                                ? RelativeLayout.ALIGN_PARENT_BOTTOM : RelativeLayout.CENTER_VERTICAL;
+                    }
+                }
+                layoutParams.addRule(verticalPosition);
+                panel.setLayoutParams(layoutParams);
+                TextView textView = TextWidgetExt.this.findViewById(R.id.tvTranslate);
+                textView.setText(s);
+                ImageButton addBtn = TextWidgetExt.this.findViewById(R.id.btnAdd);
+                addBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+                panel.setVisibility(View.VISIBLE);
+                panel.requestFocus();
+            }
+        });
+    }
+
+    private View findOrCreatePanel(View widget) {
+        final ViewParent parent = widget.getParent();
+        if (!(parent instanceof RelativeLayout)) {
+            return null;
+        }
+
+        final RelativeLayout root = (RelativeLayout)parent;
+        return ViewUtil.findView(root, R.id.selection_panel, () -> {
+            root.inflate(getContext(), R.layout.layout_selection_translate_pannel, root);
+            return ViewUtil.findView(root, R.id.selection_panel);
+        });
+    }
 }

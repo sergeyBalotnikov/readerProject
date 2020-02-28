@@ -28,7 +28,7 @@ public class Interpreter {
             String responseCode = jsonObject.get("code").toString();
 
             if(responseCode.equals("502")){
-                translatedString = "Invalid parameter: \"text\" in response";
+                translatedString = "Invalid parameter: \"text\" in request";
             } else {
                 translatedString = jsonObject.getJSONArray("text").get(0).toString();
             }
