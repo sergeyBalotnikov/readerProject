@@ -1,6 +1,5 @@
 package ru.mail.sergey_balotnikov.literaturetranslator.utils;
 
-import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
@@ -12,7 +11,6 @@ public class Interpreter {
 
     private Interpreter(){}
 
-    public static final String LOG_TAG = "SVB";
     private static final String GET_TRANSLATE = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20200227T144238Z.3bc94a8fddc6d91b.79b116caa7d689417a79c0145f00d025a47a35f5&text=%s&lang=en-ru";
 
     public static String translatedText(String inputText){
@@ -37,7 +35,6 @@ public class Interpreter {
         } catch (JSONException e){
             e.printStackTrace();
         }
-
         return translatedString;
     }
 }

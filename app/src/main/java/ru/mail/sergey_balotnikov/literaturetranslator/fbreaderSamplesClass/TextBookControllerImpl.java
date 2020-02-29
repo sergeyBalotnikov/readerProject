@@ -5,10 +5,6 @@
 package ru.mail.sergey_balotnikov.literaturetranslator.fbreaderSamplesClass;
 
 import java.util.*;
-
-import android.content.*;
-import android.net.Uri;
-
 import org.fbreader.book.*;
 import org.fbreader.config.ConfigInterface;
 import org.fbreader.config.StringOption;

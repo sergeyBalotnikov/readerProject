@@ -5,7 +5,6 @@
 package ru.mail.sergey_balotnikov.literaturetranslator.fbreaderSamplesClass;
 
 import android.graphics.Point;
-
 import org.fbreader.text.extras.gesture.GestureListenerImpl;
 import org.fbreader.text.extras.navigation.NavigationUtil;
 import org.fbreader.util.PageIndex;

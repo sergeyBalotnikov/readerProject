@@ -11,7 +11,7 @@
     android:clickable="true">
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="25dp"
         android:paddingLeft="15dp"
@@ -20,16 +20,16 @@
         >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
             >
             <TextView
                 android:id="@+id/tvTranslate"
-                android:gravity="center"
+                android:gravity="center|center_vertical"
                 android:layout_weight="7"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorTextDB"
                 android:textStyle="italic"
@@ -37,9 +37,12 @@
                 tools:text="translate"/>
             <ImageButton
                 android:id="@+id/btnAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
                 android:src="@drawable/ic_button_plus_small"
+                android:tint="@color/colorAccent"
+                android:background="@null"
                 android:layout_weight="1"/>
         </LinearLayout>
     </FrameLayout>

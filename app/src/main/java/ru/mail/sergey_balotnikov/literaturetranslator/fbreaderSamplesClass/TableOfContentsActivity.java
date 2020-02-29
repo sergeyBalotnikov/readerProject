@@ -5,7 +5,6 @@
 package ru.mail.sergey_balotnikov.literaturetranslator.fbreaderSamplesClass;
 
 import java.util.*;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,11 +13,9 @@ import android.util.TypedValue;
 import android.view.*;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
-
 import org.fbreader.toc.TableOfContents;
 import org.fbreader.toc.TOCTree;
 import org.fbreader.util.ViewUtil;
-
 import ru.mail.sergey_balotnikov.literaturetranslator.R;
 
 public class TableOfContentsActivity extends AppCompatActivity {

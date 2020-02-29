@@ -2,14 +2,12 @@ package ru.mail.sergey_balotnikov.literaturetranslator.repositories;
 
 import android.os.Environment;
 import android.util.Log;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 import ru.mail.sergey_balotnikov.literaturetranslator.books.Book;
 
 public class RepoStartActivityImpl implements RepositoryStartActivity {
@@ -18,16 +16,10 @@ public class RepoStartActivityImpl implements RepositoryStartActivity {
     public static final ExecutorService EXECUTOR = Executors.newFixedThreadPool(
             Runtime.getRuntime().availableProcessors() - 1);
 
-    private Book lastOpenBook;
     private List<Book> storageBooks;
 
     public RepoStartActivityImpl() {
         storageBooks = new ArrayList<>();
-    }
-
-    @Override
-    public CompletableFuture<Book> getLastOpenBook() {
-        return null;
     }
 
     @Override

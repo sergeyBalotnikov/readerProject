@@ -5,7 +5,6 @@
 package ru.mail.sergey_balotnikov.literaturetranslator.fbreaderSamplesClass;
 
 import android.content.Intent;
-
 import org.fbreader.book.Book;
 import org.fbreader.toc.TableOfContents;
 import org.fbreader.text.widget.TextWidget;

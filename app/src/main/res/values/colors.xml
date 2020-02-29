@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#795548</color>
-    <color name="colorPrimaryMedium">#6F4C41</color>
     <color name="colorPrimaryDark">#5d4037</color>
     <color name="colorAccent">#fe9700</color>
     <color name="colorTextWB">#212121</color>
@@ -9,8 +8,7 @@
     <color name="colorAnnotationTextWB">#707070</color>
     <color name="colorAnnotationTextDB">#d7ccc8</color>
     <color name="colorSoftGrayBackground">#E7E3E1</color>
-    <color name="colorAccentTwo">#d32f2f</color>
-    <color name="colorAccentThree">#e30025</color>
+    <color name="colorStripeOfShape">#BBBBBB</color>
     <color name="colorAccentFour">#fff2aa</color>
 
 </resources>

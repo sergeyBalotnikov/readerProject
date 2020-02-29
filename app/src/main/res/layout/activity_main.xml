@@ -1,76 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorSoftGrayBackground"
+    android:background="@color/colorPrimaryDark"
     >
-
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/svSearch"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_margin="@dimen/regular_margin"
-        android:background="@color/colorAnnotationTextDB"
-        />
-    <TextView
-        android:id="@+id/tvLastOpenedBook"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="end"
-        android:textSize="@dimen/title_text_size"
-        tools:text="@string/last_opened_book"
-        android:hint="@string/last_opened_book"
-        android:background="@color/colorAccentFour"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBooksList"
-        android:layout_weight="5"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/colorSoftGrayBackground"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginRight="@dimen/regular_margin"
+        android:layout_marginLeft="@dimen/regular_margin"
+        android:elevation="@dimen/medium_margin"
+        android:background="@null"
         />
-
-    <RelativeLayout
-        android:id="@+id/rlButtons"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        >
-
-        <ImageButton
-            android:id="@+id/ibSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_settings"
-            android:tint="@color/colorAccent"
-            android:background="@null"
-            android:elevation="4dp"
-            android:layout_margin="@dimen/regular_margin"
-
-            />
 
         <ImageButton
             android:id="@+id/ibDictionary"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
+            android:layout_height="wrap_content"
             android:background="@null"
-            android:elevation="4dp"
+            android:elevation="@dimen/medium_margin"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_dictionary"
-            android:tint="@color/colorAccentTwo" />
+            android:tint="@color/colorAccent"
+            android:layout_margin="@dimen/medium_margin"/>
 
-    </RelativeLayout>
-
-
-</LinearLayout>
+</RelativeLayout>
